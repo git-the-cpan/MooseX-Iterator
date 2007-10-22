@@ -1,6 +1,6 @@
 package MooseX::Iterator;
 
-our $VERSION   = '0.05';
+our $VERSION   = '0.06';
 our $AUTHORITY = 'cpan:RLB';
 
 use MooseX::Iterator::Array;
@@ -28,7 +28,7 @@ Access the Iterator directly:
 
     my $count = 1;
     while ( $iter->has_next ) {
-        print $test->next;
+        print $iter->next;
     }
     
 Or use the meta class:
