@@ -17,41 +17,40 @@
 #     NAME => q[MooseX::Iterator]
 #     NO_META => q[1]
 #     PL_FILES => {  }
-#     PREREQ_PM => { Test::More=>q[0.42], Moose=>q[0.25] }
-#     VERSION => q[0.06]
+#     PREREQ_PM => { Test::More=>q[0.42], Moose=>q[0.26] }
+#     VERSION => q[0.07]
 #     dist => { PREOP=>q[$(PERL) -I. "-MModule::Install::Admin" -e "dist_preop(q($(DISTVNAME)))"] }
-#     test => { TESTS=>q[t/00.load.t t/01.basic.array.t t/02.meta.array.t t/03.basic.hash.t t/04.meta.hash.t] }
 
 # --- MakeMaker post_initialize section:
 
 
 # --- MakeMaker const_config section:
 
-# These definitions are from config.sh (via /opt/local/lib/perl5/5.8.8/darwin-thread-multi-2level/Config.pm)
+# These definitions are from config.sh (via /System/Library/Perl/5.8.8/darwin-thread-multi-2level/Config.pm)
 
 # They may have been overridden via Makefile.PL or on the command line
 AR = ar
-CC = /usr/bin/gcc-4.0
+CC = cc
 CCCDLFLAGS =  
 CCDLFLAGS =  
 DLEXT = bundle
 DLSRC = dl_dlopen.xs
 EXE_EXT = 
 FULL_AR = /usr/bin/ar
-LD = env MACOSX_DEPLOYMENT_TARGET=10.3 cc
-LDDLFLAGS = -L/opt/local/lib -bundle -undefined dynamic_lookup -L/usr/local/lib
-LDFLAGS = -L/opt/local/lib -L/usr/local/lib
+LD = cc -mmacosx-version-min=10.5
+LDDLFLAGS = -arch i386 -arch ppc -bundle -undefined dynamic_lookup -L/usr/local/lib
+LDFLAGS = -arch i386 -arch ppc -L/usr/local/lib
 LIBC = /usr/lib/libc.dylib
 LIB_EXT = .a
 OBJ_EXT = .o
 OSNAME = darwin
-OSVERS = 8.9.1
-RANLIB = ranlib
-SITELIBEXP = /opt/local/lib/perl5/site_perl/5.8.8
-SITEARCHEXP = /opt/local/lib/perl5/site_perl/5.8.8/darwin-thread-multi-2level
+OSVERS = 9.0
+RANLIB = /usr/bin/ar ts
+SITELIBEXP = /Library/Perl/5.8.8
+SITEARCHEXP = /Library/Perl/5.8.8/darwin-thread-multi-2level
 SO = dylib
-VENDORARCHEXP = /opt/local/lib/perl5/vendor_perl/5.8.8/darwin-thread-multi-2level
-VENDORLIBEXP = /opt/local/lib/perl5/vendor_perl/5.8.8
+VENDORARCHEXP = /Network/Library/Perl/5.8.8/darwin-thread-multi-2level
+VENDORLIBEXP = /Network/Library/Perl/5.8.8
 
 
 # --- MakeMaker constants section:
@@ -60,11 +59,11 @@ DIRFILESEP = /
 DFSEP = $(DIRFILESEP)
 NAME = MooseX::Iterator
 NAME_SYM = MooseX_Iterator
-VERSION = 0.06
+VERSION = 0.07
 VERSION_MACRO = VERSION
-VERSION_SYM = 0_06
+VERSION_SYM = 0_07
 DEFINE_VERSION = -D$(VERSION_MACRO)=\"$(VERSION)\"
-XS_VERSION = 0.06
+XS_VERSION = 0.07
 XS_VERSION_MACRO = XS_VERSION
 XS_DEFINE_VERSION = -D$(XS_VERSION_MACRO)=\"$(XS_VERSION)\"
 INST_ARCHLIB = blib/arch
@@ -74,59 +73,59 @@ INST_LIB = blib/lib
 INST_MAN1DIR = blib/man1
 INST_MAN3DIR = blib/man3
 MAN1EXT = 1
-MAN3EXT = 3
+MAN3EXT = 3pm
 INSTALLDIRS = site
 DESTDIR = 
 PREFIX = $(SITEPREFIX)
-PERLPREFIX = /opt/local
-SITEPREFIX = /opt/local
-VENDORPREFIX = /opt/local
-INSTALLPRIVLIB = /opt/local/lib/perl5/5.8.8
+PERLPREFIX = /
+SITEPREFIX = /usr/local
+VENDORPREFIX = /usr/local
+INSTALLPRIVLIB = /System/Library/Perl/5.8.8
 DESTINSTALLPRIVLIB = $(DESTDIR)$(INSTALLPRIVLIB)
-INSTALLSITELIB = /opt/local/lib/perl5/site_perl/5.8.8
+INSTALLSITELIB = /Library/Perl/5.8.8
 DESTINSTALLSITELIB = $(DESTDIR)$(INSTALLSITELIB)
-INSTALLVENDORLIB = /opt/local/lib/perl5/vendor_perl/5.8.8
+INSTALLVENDORLIB = /Network/Library/Perl/5.8.8
 DESTINSTALLVENDORLIB = $(DESTDIR)$(INSTALLVENDORLIB)
-INSTALLARCHLIB = /opt/local/lib/perl5/5.8.8/darwin-thread-multi-2level
+INSTALLARCHLIB = /System/Library/Perl/5.8.8/darwin-thread-multi-2level
 DESTINSTALLARCHLIB = $(DESTDIR)$(INSTALLARCHLIB)
-INSTALLSITEARCH = /opt/local/lib/perl5/site_perl/5.8.8/darwin-thread-multi-2level
+INSTALLSITEARCH = /Library/Perl/5.8.8/darwin-thread-multi-2level
 DESTINSTALLSITEARCH = $(DESTDIR)$(INSTALLSITEARCH)
-INSTALLVENDORARCH = /opt/local/lib/perl5/vendor_perl/5.8.8/darwin-thread-multi-2level
+INSTALLVENDORARCH = /Network/Library/Perl/5.8.8/darwin-thread-multi-2level
 DESTINSTALLVENDORARCH = $(DESTDIR)$(INSTALLVENDORARCH)
-INSTALLBIN = /opt/local/bin
+INSTALLBIN = /usr/bin
 DESTINSTALLBIN = $(DESTDIR)$(INSTALLBIN)
-INSTALLSITEBIN = /opt/local/bin
+INSTALLSITEBIN = /usr/local/bin
 DESTINSTALLSITEBIN = $(DESTDIR)$(INSTALLSITEBIN)
-INSTALLVENDORBIN = /opt/local/bin
+INSTALLVENDORBIN = /usr/local/bin
 DESTINSTALLVENDORBIN = $(DESTDIR)$(INSTALLVENDORBIN)
-INSTALLSCRIPT = /opt/local/bin
+INSTALLSCRIPT = /usr/bin
 DESTINSTALLSCRIPT = $(DESTDIR)$(INSTALLSCRIPT)
-INSTALLSITESCRIPT = /opt/local/bin
+INSTALLSITESCRIPT = /usr/local/bin
 DESTINSTALLSITESCRIPT = $(DESTDIR)$(INSTALLSITESCRIPT)
-INSTALLVENDORSCRIPT = /opt/local/bin
+INSTALLVENDORSCRIPT = /usr/local/bin
 DESTINSTALLVENDORSCRIPT = $(DESTDIR)$(INSTALLVENDORSCRIPT)
-INSTALLMAN1DIR = /opt/local/share/man/man1
+INSTALLMAN1DIR = /usr/share/man/man1
 DESTINSTALLMAN1DIR = $(DESTDIR)$(INSTALLMAN1DIR)
-INSTALLSITEMAN1DIR = /opt/local/share/man/man1
+INSTALLSITEMAN1DIR = /usr/local/share/man/man1
 DESTINSTALLSITEMAN1DIR = $(DESTDIR)$(INSTALLSITEMAN1DIR)
-INSTALLVENDORMAN1DIR = /opt/local/share/man/man1
+INSTALLVENDORMAN1DIR = /usr/local/share/man/man1
 DESTINSTALLVENDORMAN1DIR = $(DESTDIR)$(INSTALLVENDORMAN1DIR)
-INSTALLMAN3DIR = /opt/local/share/man/man3
+INSTALLMAN3DIR = /usr/share/man/man3
 DESTINSTALLMAN3DIR = $(DESTDIR)$(INSTALLMAN3DIR)
-INSTALLSITEMAN3DIR = /opt/local/share/man/man3
+INSTALLSITEMAN3DIR = /usr/local/share/man/man3
 DESTINSTALLSITEMAN3DIR = $(DESTDIR)$(INSTALLSITEMAN3DIR)
-INSTALLVENDORMAN3DIR = /opt/local/share/man/man3
+INSTALLVENDORMAN3DIR = /usr/local/share/man/man3
 DESTINSTALLVENDORMAN3DIR = $(DESTDIR)$(INSTALLVENDORMAN3DIR)
 PERL_LIB =
-PERL_ARCHLIB = /opt/local/lib/perl5/5.8.8/darwin-thread-multi-2level
+PERL_ARCHLIB = /System/Library/Perl/5.8.8/darwin-thread-multi-2level
 LIBPERL_A = libperl.a
 FIRST_MAKEFILE = Makefile
 MAKEFILE_OLD = Makefile.old
 MAKE_APERL_FILE = Makefile.aperl
 PERLMAINCC = $(CC)
-PERL_INC = /opt/local/lib/perl5/5.8.8/darwin-thread-multi-2level/CORE
-PERL = /opt/local/bin/perl "-Iinc"
-FULLPERL = /opt/local/bin/perl "-Iinc"
+PERL_INC = /System/Library/Perl/5.8.8/darwin-thread-multi-2level/CORE
+PERL = /usr/bin/perl "-Iinc"
+FULLPERL = /usr/bin/perl "-Iinc"
 ABSPERL = $(PERL)
 PERLRUN = $(PERL)
 FULLPERLRUN = $(FULLPERL)
@@ -138,7 +137,7 @@ PERL_CORE = 0
 PERM_RW = 644
 PERM_RWX = 755
 
-MAKEMAKER   = /opt/local/lib/perl5/5.8.8/ExtUtils/MakeMaker.pm
+MAKEMAKER   = /System/Library/Perl/5.8.8/ExtUtils/MakeMaker.pm
 MM_VERSION  = 6.36
 MM_REVISION = 32261
 
@@ -267,7 +266,7 @@ RCS_LABEL = rcs -Nv$(VERSION_SYM): -q
 DIST_CP = best
 DIST_DEFAULT = tardist
 DISTNAME = MooseX-Iterator
-DISTVNAME = MooseX-Iterator-0.06
+DISTVNAME = MooseX-Iterator-0.07
 
 
 # --- MakeMaker macro section:
@@ -731,7 +730,7 @@ $(FIRST_MAKEFILE) : Makefile.PL $(CONFIGDEP)
 
 # --- MakeMaker makeaperl section ---
 MAP_TARGET    = perl
-FULLPERL      = /opt/local/bin/perl
+FULLPERL      = /usr/bin/perl
 
 $(MAP_TARGET) :: static $(MAKE_APERL_FILE)
 	$(MAKE) $(USEMAKEFILE) $(MAKE_APERL_FILE) $@
@@ -749,7 +748,7 @@ $(MAKE_APERL_FILE) : $(FIRST_MAKEFILE) pm_to_blib
 TEST_VERBOSE=0
 TEST_TYPE=test_$(LINKTYPE)
 TEST_FILE = test.pl
-TEST_FILES = t/00.load.t t/01.basic.array.t t/02.meta.array.t t/03.basic.hash.t t/04.meta.hash.t
+TEST_FILES = t/*.t
 TESTDB_SW = -d
 
 testdb :: testdb_$(LINKTYPE)
@@ -775,12 +774,12 @@ testdb_static :: testdb_dynamic
 # --- MakeMaker ppd section:
 # Creates a PPD (Perl Package Description) for a binary distribution.
 ppd:
-	$(NOECHO) $(ECHO) '<SOFTPKG NAME="$(DISTNAME)" VERSION="0,06,0,0">' > $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '<SOFTPKG NAME="$(DISTNAME)" VERSION="0,07,0,0">' > $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <TITLE>$(DISTNAME)</TITLE>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <ABSTRACT>Iterate over collections</ABSTRACT>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <AUTHOR>Robert Boone &lt;rlb@cpan.org&gt;</AUTHOR>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <IMPLEMENTATION>' >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) '        <DEPENDENCY NAME="Moose" VERSION="0,25,0,0" />' >> $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '        <DEPENDENCY NAME="Moose" VERSION="0,26,0,0" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <DEPENDENCY NAME="Test-More" VERSION="0,42,0,0" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <OS NAME="$(OSNAME)" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <ARCHITECTURE NAME="darwin-thread-multi-2level-5.8" />' >> $(DISTNAME).ppd
@@ -808,7 +807,7 @@ pm_to_blib : $(TO_INST_PM)
 
 
 # End.
-# Postamble by Module::Install 0.67
+# Postamble by Module::Install 0.680
 # --- Module::Install::Admin::Makefile section:
 
 realclean purge ::
@@ -826,15 +825,4 @@ grok ::
 
 distsign ::
 	cpansign -s
-
-# --- Module::Install::AutoInstall section:
-
-config :: installdeps
-	$(NOECHO) $(NOOP)
-
-checkdeps ::
-	$(PERL) Makefile.PL --checkdeps
-
-installdeps ::
-	$(NOECHO) $(NOOP)
 

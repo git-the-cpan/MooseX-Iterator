@@ -1,10 +1,11 @@
 --- 
 abstract: Iterate over collections
-author: Robert Boone <rlb@cpan.org>
+author: 
+  - Robert Boone <rlb@cpan.org>
 build_requires: 
   Test::More: 0.42
 distribution_type: module
-generated_by: Module::Install version 0.67
+generated_by: Module::Install version 0.680
 license: perl
 meta-spec: 
   url: http://module-build.sourceforge.net/META-spec-v1.3.html
@@ -15,5 +16,5 @@ no_index:
     - inc
     - t
 requires: 
-  Moose: 0.25
-version: 0.06
+  Moose: 0.26
+version: 0.07
