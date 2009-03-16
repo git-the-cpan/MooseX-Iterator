@@ -1,6 +1,6 @@
 package MooseX::Iterator;
 
-our $VERSION   = '0.09';
+our $VERSION   = '0.10';
 our $AUTHORITY = 'cpan:RLB';
 
 use MooseX::Iterator::Array;
@@ -87,6 +87,10 @@ The has_next method is a boolean method that is true if there is another item in
 
 The peek method returns the next item without moving the state of the iterator forward. It returns undef if it is at the end of the collection.
 
+=item reset
+
+Resets the cursor, so you can iterate through the elements again.
+
 =back
 
 =item Subclassing MooseX::Iterator::Meta::Iterable
@@ -102,10 +106,13 @@ Robert Boone E<lt>rlb@cpan.orgE<gt>
 
 And thank you to Steven Little (steven) and Matt Trout (mst) for the help and advice they gave.
 
+=head1 CONTRIBUTORS
+
+Johannes Plunien
+
 =head1 Code Repository
 
  Git - http://github.com/rlb3/moosex-iterator/tree/master
- SVN - http://code2.0beta.co.uk/moose/svn/MooseX-Iterator/trunk/
 
 =head1 COPYRIGHT AND LICENSE
 

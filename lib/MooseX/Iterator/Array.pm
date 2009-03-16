@@ -3,7 +3,7 @@ use Moose;
 
 use MooseX::Iterator::Meta::Iterable;
 
-our $VERSION   = '0.09';
+our $VERSION   = '0.10';
 our $AUTHORITY = 'cpan:RLB';
 
 with 'MooseX::Iterator::Role';
@@ -31,6 +31,11 @@ sub peek {
         return $self->_collection->[ $self->_position + 1 ];
     }
     return;
+}
+
+sub reset {
+    my ($self) = @_;
+    $self->_position(0);
 }
 
 no Moose;
