@@ -4,7 +4,7 @@ use MooseX::Iterator::Array;
 
 use Carp 'confess';
 
-our $VERSION   = '0.10';
+our $VERSION   = '0.11';
 our $AUTHORITY = 'cpan:RLB';
 
 extends 'Moose::Meta::Attribute';
@@ -14,10 +14,10 @@ has iterate_over => ( is => 'ro', isa => 'Str', default => '' );
 before '_process_options' => sub {
     my ( $class, $name, $options ) = @_;
 
-    if ( defined $options->{is} ) {
-        confess "Can not use 'is' with the Iterable metaclass";
-    }
-
+    #if ( defined $options->{is} ) {
+    #    confess "Can not use 'is' with the Iterable metaclass";
+    #}
+    $options->{is} = 'bare';
     $class->meta->add_attribute( iterate_name => ( is => 'ro', isa => 'Str', default => $name ) );
 };
 
